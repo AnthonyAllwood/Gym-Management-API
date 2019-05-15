@@ -5,8 +5,9 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const User = require('./models/user.model.js');
 const userController = require('./controller/user.controller');
+const config = require('./configs/config')
 mongoose.Promise = global.Promise; //Not sure what this does
-mongoose.connect('mongodb+srv://a1-ant:TB2freshh23^@cluster0-whq5b.mongodb.net/gym-system', { useNewUrlParser: true } );
+mongoose.connect(config.mongouri, { useNewUrlParser: true } );
 const app = express();
 const connection = mongoose.connection;
 
